@@ -1,0 +1,47 @@
+<!-- first layout with wellcome note and background image -->
+<div class="background-image-1">
+	<div class="background-tint">
+		<!-- alerts -->
+			<%flash.each do |key, value|%>
+				<div class="alert alert-<%= key %>"><center><%= value %></center></div>
+				<%end%>
+		</div>
+
+		<div class="index">
+		&nbsp
+		&nbsp
+		&nbsp
+			<h3> How curious are you, dying to ask some questions?
+			<br>
+			<a href="/posts/new">Just ask</a> now, I'm sure you will receive a great answer.</h3>
+
+		</div>
+	</div>
+</div>
+
+<!-- most popular post -->
+<div class="background-image-2">
+	<div class="border-radius">
+		<h3 class="post_wrapper">Newest Post.</h3>
+	</div>
+
+	<!-- cards -->
+	<div class="cards">
+		<% @post.order(id: :desc).limit(8).each do |post|%>
+					<div id="box_1">
+						<ul>
+							<li>
+								<h class="title"><%= link_to post.title, post%></h>
+							</li>
+						</ul>
+					</div>
+				<%end%>
+	</div>
+<div>
+	<h3>Most popular</h3>
+</div>
+	<div>
+		<h1>QUESTION OF THE DAY</h1>
+		<h>note for programmer add yes or not button or something to vote.</h>
+	</div>
+</div>

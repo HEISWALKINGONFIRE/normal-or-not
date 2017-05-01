@@ -1,0 +1,82 @@
+<!-- posts -->
+	<div class="post-container">
+			&nbsp
+		<div class="show-text">
+			<h1><%=@post.title%></h1>
+			<br>
+			<h>tag</h>
+			<br>
+			<%=@post.tag%>
+			<!-- post by who? -->
+			<br>
+			<br>
+			<h3><%=@post.body%></h3>
+				<!-- <button class="vote">Upvote</button>0<button class="vote">Downvote</button>0<button>Comment</button>0 -->
+
+				Upvote: <%= @post.upvote %> Downvote: <%=@post.downvote%>
+
+<br
+				<!-- upvote -->
+
+					<%= form_for @post, url: {action:"upvote" }, html: {class: "upvote"} do |p|%>
+					<%= p.hidden_field :upvote %>
+					<%= p.hidden_field :id, :value => @post.id %>
+					<%= p.submit "upvote" %>
+					<%end%>
+
+
+				<!-- downvote -->
+
+					<%= form_for @post, url: {action:"downvote"}, html: {class: "downvote"} do |d|%>
+					<%= d.hidden_field :downvote%>
+					<%= d.hidden_field :id, :value => @post.id%>
+					<%= d.submit "downvote"%>
+					<%end%>
+					<br>
+					<%= link_to 'Delete', @post, :method => :delete%>
+
+					<div class="created_at">
+						<h>created at </h><%= @post.created_at%>
+					</div>
+
+<!-- add validation for upvote and downvote so that each user can only Upvote or downVote once				<!- <form action="/upvote" id="@post" method="posts"> -->
+				&nbsp
+		</div>
+		&nbsp
+		&nbsp
+	</div>
+
+		<!-- comments -->
+
+		<% @comment_all.each do |all|%>
+			<br>
+		<div class="comments">
+			<div class="show-text">
+				<br>
+					<%= all.body%>
+				<br>
+					<h class="comments-buttons">Upvote Downvote Reply</h>
+
+					<div class="created_at"><h>created at </h><%= all.created_at%>
+					</div>
+
+			</div>
+			<br>
+		</div>
+
+		<%end%>
+
+
+		<!-- add comments -->
+		<center>
+		<div class="add-comments">
+			<%= form_for @comment_new do |add|%>
+			<%= add.text_field :body, placeholder:"add a comment..."%>
+			<%= add.hidden_field :post_id, value:@post.id%>
+
+			<%= add.hidden_field :user_id, value:@user_id%>
+
+			<%= add.submit"Submit"%>
+			<%end%>
+		</div>
+		</center>
