@@ -10,11 +10,11 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require my
-//= require jquery
-//= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+// = require my
+// = require jquery
+// = require jquery_ujs
+// = require turbolinks
+// = require_tree .
 
 // var i = 0;
 // function change() {
@@ -24,3 +24,30 @@
 //   i = (i + 1) % color.length;
 // }
 // setInterval(change, 1000);
+
+// jquary is working but this isnt
+// $(document).ready(function(){
+//   $("#box_1").hover(function(){
+//     $(this).css("background-color", "#43bce8");
+//   });
+// });
+// #f2b0dd = pink #43bce8 = blue
+$(document).ready(function(){
+    $(".box_1").hover(function(){
+        $(this).css("background-color","#f2b0dd");
+        }, function(){
+        $(this).css("background-color", "#43bce8");
+    });
+});
+
+// $(document).ready(function(){
+//   $(".box_1").hover(function(){
+//     $(".box_1").css(".animation-target")
+//   });
+// });
+ // $(document).ready(function(){
+ //  $(".box_1").hover(function(){
+ //    $(this).css(-webkit-animation: animation 1000ms linear both;
+ //    animation: animation 1000ms linear both;);
+ //  })
+ // });

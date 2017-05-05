@@ -28,7 +28,7 @@
 	<!-- cards -->
 	<div class="cards">
 		<% @post.order(id: :desc).limit(8).each do |post|%>
-					<div id="box_1">
+					<div class="box_1">
 						<ul>
 							<li>
 								<h class="title"><%= link_to post.title, post%></h>
