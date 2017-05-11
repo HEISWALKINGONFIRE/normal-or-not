@@ -17,9 +17,17 @@ class CommentsController < ApplicationController
 	end
 	# undone
 	def upvote_c
-		@comment = Comment.find(params[:comment][:id])
-		@comemnt.upvote_c += 1
-		@comment.save
+		@comment_all = ::Comment.find(params[:comment][:id])
+		@comment_all.upvote += 1
+		@comment_all.save
+		redirect_to :back
+	end
+
+	def downvote_c
+		@comment_all = Comment.find(params[:comment][:id])
+		@comment_all.downvote += 1
+		@comment_all.save
+		redirect_to :back
 	end
 
 	def delete

@@ -8,9 +8,12 @@
 			<br> -->
 			<%=@post.tag%>
 			<!-- post by who? -->
+			by:@<%=User.all.find(Post.find(params[:id]).user_id).username%>
 			<br>
 			<br>
-			<h3><%=@post.body%></h3>
+			<h3>
+			<%=@post.body%></h3>
+
 				<!-- <button class="vote">Upvote</button>0<button class="vote">Downvote</button>0<button>Comment</button>0 -->
 
 				Upvote: <%= @post.upvote %> Downvote: <%=@post.downvote%>
@@ -45,21 +48,33 @@
 		&nbsp
 		&nbsp
 	</div>
-
 		<!-- comments -->
 
 		<% @comment_all.each do |all|%>
 			<br>
 		<div class="comments">
 			<div class="show-text">
+				&nbsp
+				<br />
+				@<%=current_user.username%>
 				<br>
 					<%= all.body%>
 				<br>
-					<h class="comments-buttons">Upvote Downvote Reply</h>
+				<br>
+				<!-- vote -->
+				Upvotes:<%= all.upvote%> Downvote:<%= all.downvote%>
+				<br />
+				<%= form_for all, url: {action:"upvote_c", controller:"comments" }, html: {class: "upvote_c"} do |p|%>
+				<%=p.hidden_field :upvote%>
+				<%=p.hidden_field :id, :value => all.id%>
+				<%=p.submit "upvote"%>
+				<%end%>
 
-					<div class="created_at"><h>created at </h><%= all.created_at%>
-					</div>
-
+				<%= form_for all, url: {action:"downvote_c", controller:"comments"},html:{class:"downvote_c"} do |d|%>
+				<%= d.hidden_field :downvote%>
+				<%= d.hidden_field :id, :value => all.id%>
+				<%= d.submit "downvote"%>
+				<%end%>
 			</div>
 			<br>
 		</div>
@@ -74,7 +89,7 @@
 			<%= add.text_field :body, placeholder:"add a comment..."%>
 			<%= add.hidden_field :post_id, value:@post.id%>
 
-			<%= add.hidden_field :user_id, value:@user_id%>
+			<%= add.hidden_field :user_id, value: session[:user_id]%>
 
 			<%= add.submit"Submit"%>
 			<%end%>

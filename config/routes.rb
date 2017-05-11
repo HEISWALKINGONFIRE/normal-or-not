@@ -12,8 +12,13 @@ Rails.application.routes.draw do
 	resources :sessions
 	resources :comments
 	get '/delete'=> 'posts#destroy'
+	# votes for post
 	patch '/upvote' => 'posts#upvote'
 	patch '/downvote' => 'posts#downvote'
-	# post '/upvote' => 'posts#upvote'
+	# vote for comments
+	patch '/upvote_c' => 'comments#upvote_c'
+
+	patch "/downvote_c" => "comments#downvote_c"
+
 	# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

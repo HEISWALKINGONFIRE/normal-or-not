@@ -13,7 +13,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     </head>
   <body>
-  
+
 
   <!-- if user is not sign in -->
  <%if current_user.present? == false%>
@@ -63,7 +63,7 @@
                       <!-- <li><a href="posts/new">Submit post</a></li> -->
               </ul>
                     <ul class="nav navbar-nav navbar-right">
-                      <li><a href=""><span class="glyphicon glyphicon-user"></span><%= current_user.username%></a></li>
+                      <li><a href=""><span class="glyphicon glyphicon-user"></span>@<%=current_user.username%></a></li>
                       <li id="logout"><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
                     </ul>
 

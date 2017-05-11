@@ -18,18 +18,21 @@ class PostsController < ApplicationController
 		else
 			@post.save
 			redirect_to "#"
-			flash[:info] = "Post submited!" 
+			flash[:info] = "Post submited!"
 		end
 	end
 	def show
 		@post = Post.find(params[:id])
 		@comment_new = Comment.new()
 		@comment_all = Comment.where(post_id:params[:id])
-		# @comment = Comment.all.find(params[:id])
+
+
 
 		# @user_id = Post.id
-
 	end
+	def update
+	end
+	# upvote
 	def upvote
 		@post = Post.find(params[:post][:id])
 		@post.upvote += 1
@@ -44,8 +47,6 @@ class PostsController < ApplicationController
 		redirect_to :back
 	end
 
- def update
- end
 	def destroy
 		@post = Post.find(params[:id])
 		@post.destroy
