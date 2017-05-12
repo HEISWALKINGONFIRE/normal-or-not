@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 	patch '/upvote_c' => 'comments#upvote_c'
 
 	patch "/downvote_c" => "comments#downvote_c"
+	get'/all' => 'posts#all'
 
 	# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
