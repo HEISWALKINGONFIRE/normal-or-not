@@ -14,32 +14,21 @@
 			<h3>
 			<%=@post.body%></h3>
 
-				<!-- <button class="vote">Upvote</button>0<button class="vote">Downvote</button>0<button>Comment</button>0 -->
 
-				Upvote: <%= @post.upvote %> Downvote: <%=@post.downvote%>
+			<div>
+				<%= link_to like_post_path(@post), method: :put do %>
+				Upvote
+				<%= @post.get_upvotes.size %>
+				<% end %>
 
-<br
-				<!-- upvote -->
-
-					<%= form_for @post, url: {action:"upvote" }, html: {class: "upvote"} do |p|%>
-					<%= p.hidden_field :upvote %>
-					<%= p.hidden_field :id, :value => @post.id %>
-					<%= p.submit "upvote" %>
-					<%end%>
-
-
-				<!-- downvote -->
-
-					<%= form_for @post, url: {action:"downvote"}, html: {class: "downvote"} do |d|%>
-					<%= d.hidden_field :downvote%>
-					<%= d.hidden_field :id, :value => @post.id%>
-					<%= d.submit "downvote"%>
-					<%end%>
-					<br>
-					<%= link_to 'Delete', @post, :method => :delete%>
-
+				<%= link_to dislike_post_path(@post), method: :put do %>
+				  Downvote
+				  <%= @post.get_downvotes.size %>
+				<% end %>
+			</div>
+				<%= link_to 'Delete', @post, :method => :delete%>
 					<div class="created_at">
-						<h>created at </h><%= @post.created_at%>
+						<h>submited </h><%= time_ago_in_words@post.created_at%> ago
 					</div>
 
 <!-- add validation for upvote and downvote so that each user can only Upvote or downVote once				<!- <form action="/upvote" id="@post" method="posts"> -->
@@ -56,25 +45,28 @@
 			<div class="show-text">
 				&nbsp
 				<br />
-				@<%=current_user.username%>
+				@<%=User.find(Post.find(14).user_id).username %>
 				<br>
 					<%= all.body%>
 				<br>
 				<br>
 				<!-- vote -->
-				Upvotes:<%= all.upvote%> Downvote:<%= all.downvote%>
-				<br />
-				<%= form_for all, url: {action:"upvote_c", controller:"comments" }, html: {class: "upvote_c"} do |p|%>
-				<%=p.hidden_field :upvote%>
-				<%=p.hidden_field :id, :value => all.id%>
-				<%=p.submit "upvote"%>
-				<%end%>
+				<div>
+					<%= link_to like_comment_path(all), method: :put do%>
+						Upvote
+						<%= all.get_upvotes.size%>
+					<%end%>
 
-				<%= form_for all, url: {action:"downvote_c", controller:"comments"},html:{class:"downvote_c"} do |d|%>
-				<%= d.hidden_field :downvote%>
-				<%= d.hidden_field :id, :value => all.id%>
-				<%= d.submit "downvote"%>
-				<%end%>
+					<%= link_to dislike_comment_path(all), method: :put do%>
+					Downvote
+					<%= all.get_downvotes.size%>
+					<%end%>
+					<div class="created_at">
+						<h>submited </h><%= time_ago_in_words@post.created_at%> ago
+					</div>
+				</div>
+				<br />
+
 			</div>
 			<br>
 		</div>

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 	has_secure_password
+	acts_as_voter
 	# validates_uniqueness_of :email, :username => true{
 	# message: "your email or username has been used please selected please choose another."};
 	  # validates :email, uniqueness: true{

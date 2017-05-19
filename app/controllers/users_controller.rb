@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	
 	def new
 		@user = User.new
 	end
@@ -17,7 +18,7 @@ class UsersController < ApplicationController
 		# 	render "new"
 		# 	flash[:warning] = "!!"
 		if @user.save == false
-		redirect_to new_user_path	
+		redirect_to new_user_path
 		flash[:warning] = "invalid username or email, please try again."
 		else
 			@user.save

@@ -13,13 +13,29 @@ Rails.application.routes.draw do
 	resources :comments
 	get '/delete'=> 'posts#destroy'
 	# votes for post
-	patch '/upvote' => 'posts#upvote'
-	patch '/downvote' => 'posts#downvote'
+	# patch '/upvote' => 'posts#upvote'
+	# patch '/downvote' => 'posts#downvote'
 	# vote for comments
-	patch '/upvote_c' => 'comments#upvote_c'
-
-	patch "/downvote_c" => "comments#downvote_c"
+	# patch '/upvote_c' => 'comments#upvote_c'
+	#
+	# patch "/downvote_c" => "comments#downvote_c"
 	get'/all' => 'posts#all'
+	# vote comments
+ 	put '/comments/:id/upvote', to: 'comments#upvote', as: 'like_comment'
+	put'/comment/:id/downvote', to: 'comments#downvote', as: 'dislike_comment'
 
+	# resources :comments do
+	# 	member do
+	# 		# put 'like', to: "comments#upvote"
+	# 		# put 'dislike', to: 'comments#downvote'
+	# 	end
+	# end
+	resources :posts do
+	  member do
+	    put "like", to: "posts#upvote"
+	    put "dislike", to: "posts#downvote"
+	  end
+	end
+# like_post_comment PUT      /posts/:post_id/comments/:id/like(.:format)
 	# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

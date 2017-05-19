@@ -1,8 +1,6 @@
 class PostsController < ApplicationController
 	# only allow users to post
 	before_action :require_user, only: [:new]
-
-
 	def index
 		@post = Post.all.order("created_at DESC")
 	end
@@ -36,17 +34,16 @@ class PostsController < ApplicationController
 	def update
 	end
 	# upvote
+
 	def upvote
-		@post = Post.find(params[:post][:id])
-		@post.upvote += 1
-		@post.save
+		@post = Post.find(params[:id])
+		@post.upvote_by current_user
 		redirect_to :back
 	end
 
 	def downvote
-		@post = Post.find(params[:post][:id])
-		@post.downvote += -1
-		@post.save
+		@post = Post.find(params[:id])
+		@post.downvote_by current_user
 		redirect_to :back
 	end
 

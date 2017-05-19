@@ -4,7 +4,8 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-
+#voting gem
+gem 'acts_as_votable', '~> 0.10.0'
 # RoR authentication
 gem "bcrypt"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

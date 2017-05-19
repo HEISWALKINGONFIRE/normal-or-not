@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
 	# only allow users to comment
 	before_action :require_user, only:[:new, :create]
+
 	def index
 		@comment = Comment.all
 	end
@@ -16,17 +17,15 @@ class CommentsController < ApplicationController
 		# add a user.id in post
 	end
 	# undone
-	def upvote_c
-		@comment_all = ::Comment.find(params[:comment][:id])
-		@comment_all.upvote += 1
-		@comment_all.save
+	def upvote
+		@comment_all = Comment.find(params[:id])
+		@comment_all.upvote_by current_user
 		redirect_to :back
 	end
 
-	def downvote_c
-		@comment_all = Comment.find(params[:comment][:id])
-		@comment_all.downvote += 1
-		@comment_all.save
+	def downvote
+		@comment_all = Comment.find(params[:id])
+		@comment_all.downvote_by current_user
 		redirect_to :back
 	end
 
