@@ -1,0 +1,8 @@
+<center>
+  <%@notification.order(Id: :DESC).each do |n|%>
+    <li>
+      <%=link_to "#{n.notified_by.username}"%> has <%="#{n.notice_type}ed" %> on your <%=link_to "post",Post.find(n.post_id)%> at <%=time_ago_in_words n.created_at%>
+    </li>
+  <%end%>
+
+</center>

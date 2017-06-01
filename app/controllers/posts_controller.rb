@@ -25,6 +25,7 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		@comment_new = Comment.new()
 		@comment_all = Comment.where(post_id:params[:id])
+		# @comment_find_id = Comment.find(params[:id])
 		@post_find = Post.all.find(params[:id])
 
 

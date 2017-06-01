@@ -58,12 +58,29 @@
                         </div>
                       </div>
                    </li>
+                   <!-- Notification     -->
+                   <li>
+                     <div class="dropdown notification-dropdown">
+                       <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="dropdownMenu1" type="button" aria-haspopup="true" aria-expanded="true">
+                       <%= current_user.notifications.count%>
+                       <span class="glyphicon-flag"></span>
+                       </button>
+                       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                         <li class="divider" role="separator"></li>
+                         <li class="text-center">
+
+
+                           <%= link_to 'View ALL', notifications_path%>
+                       </ul>
+                     </div>
+                   </li>
+
 
 
                       <!-- <li><a href="posts/new">Submit post</a></li> -->
               </ul>
                     <ul class="nav navbar-nav navbar-right">
-                      <li><a href=""><span class="glyphicon glyphicon-user"></span>@<%=current_user.username%></a></li>
+                      <li><a href="/profiles"><span class="glyphicon glyphicon-user"></span>@<%=current_user.username%></a></li>
                       <li id="logout"><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
                     </ul>
 

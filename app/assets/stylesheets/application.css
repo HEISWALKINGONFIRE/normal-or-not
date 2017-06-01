@@ -18,4 +18,10 @@
  	margin-top: auto;
  	background-repeat: no-repeat center center fixed;
  }
- 
+
+ .notification-dropdown {
+   margin-top: 10px;
+   button {
+     border: none;
+   }
+ }

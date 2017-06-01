@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 	has_secure_password
+	has_many :notifications, dependent: :destroy
 	acts_as_voter
 	# validates_uniqueness_of :email, :username => true{
 	# message: "your email or username has been used please selected please choose another."};

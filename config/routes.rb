@@ -36,6 +36,9 @@ Rails.application.routes.draw do
 	    put "dislike", to: "posts#downvote"
 	  end
 	end
+	resources :profiles
+	resources :notifications
+	
 # like_post_comment PUT      /posts/:post_id/comments/:id/like(.:format)
 	# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

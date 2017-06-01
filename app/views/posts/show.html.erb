@@ -62,7 +62,7 @@
 					<%= all.get_downvotes.size%>
 					<%end%>
 					<div class="created_at">
-						<h>submited </h><%= time_ago_in_words@post.created_at%> ago
+						<h>submited </h><%= time_ago_in_words all.created_at%> ago
 					</div>
 				</div>
 				<br />
@@ -80,6 +80,7 @@
 			<%= form_for @comment_new do |add|%>
 			<%= add.text_field :body, placeholder:"add a comment..."%>
 			<%= add.hidden_field :post_id, value:@post.id%>
+			<!-- <%= add.hidden_field :comment_id, value:@comment_find_id%> -->
 
 			<%= add.hidden_field :user_id, value: session[:user_id]%>
 

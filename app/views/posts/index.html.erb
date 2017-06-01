@@ -42,10 +42,20 @@
 	</center>
 <div>
 	<h3>Most popular</h3>
-	<!-- this code show most upvotes
-	Post.order("upvote DESC").limit(10) -->
+	<!-- this code show most upvotes -->
+	<div class="cards">
+		<%Post.order(:cached_votes_up => :desc).limit(4).each do |likes|%>
+				<div class="box_1">
+					<ul>
+						<li>
+							<h class="title"><%= link_to likes.title, likes%></h>
+						</li>
+					</ul>
+				</div>
+		<%end%>
+	</div>
+	</div>
 
-</div>
 	<div>
 		<h1>QUESTION OF THE DAY</h1>
 		<h>note for programmer add yes or not button or something to vote.</h>
