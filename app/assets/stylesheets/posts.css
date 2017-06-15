@@ -180,6 +180,10 @@ background-color: #58f72c;
 {
 	display:none;
 }
+input#post_title
+{
+	width:500px;
+}
 
 /*adding bounce*/
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\

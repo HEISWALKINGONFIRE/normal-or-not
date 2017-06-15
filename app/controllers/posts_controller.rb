@@ -15,6 +15,7 @@ layout nil, :only => [:new]
 	def new
 		@post = Post.new
 		@notification = Notification.where(:user_id => current_user.id)
+		render layout: false
 	end
 # render new and redirect error
 	def create
