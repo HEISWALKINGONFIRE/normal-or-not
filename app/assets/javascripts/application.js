@@ -40,6 +40,11 @@ $(document).ready(function(){
     });
 });
 
+// fadeOut flash notificcations
+$(document).ready(function(){
+  $(".background-tint").fadeOut(3000);
+})
+
 // $(document).ready(function(){
 //   $(".box_1").hover(function(){
 //     $(".box_1").css(".animation-target")

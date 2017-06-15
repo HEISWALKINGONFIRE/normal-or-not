@@ -14,7 +14,7 @@
     </head>
   <body>
 
-
+<div class="not-signin">
   <!-- if user is not sign in -->
  <%if current_user.present? == false%>
       <nav class="navbar navbar-inverse">
@@ -36,6 +36,8 @@
         </div>
       </nav>
 
+</div>
+  <div class="sign-in">
     <!-- if user sign in -->
     <%else current_user.present? == true%>
       <nav class="navbar navbar-inverse">
@@ -59,21 +61,26 @@
                       </div>
                    </li>
                    <!-- Notification     -->
-                   <li>
-                     <div class="dropdown notification-dropdown">
-                       <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="dropdownMenu1" type="button" aria-haspopup="true" aria-expanded="true">
-                       <%= current_user.notifications.count%>
-                       <span class="glyphicon-flag"></span>
+                   <!-- <li>
+                     <div class="btnW navbar-btn">
+                       <button class="btn btn-default dropdown-toggle" >
+                       <%= current_user.notifications.where(read:false).count%>
+
+                       <span class="glyphicon glyphicon-globe"></span>
                        </button>
                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                         <center>
+                           Notifications
+                         </center>
                          <li class="divider" role="separator"></li>
+
                          <li class="text-center">
 
 
                            <%= link_to 'View ALL', notifications_path%>
                        </ul>
                      </div>
-                   </li>
+                   </li> -->
 
 
 
@@ -81,12 +88,16 @@
               </ul>
                     <ul class="nav navbar-nav navbar-right">
                       <li><a href="/profiles"><span class="glyphicon glyphicon-user"></span>@<%=current_user.username%></a></li>
+                      <li><a href="/notifications"><span class="glyphicon glyphicon-globe"></span><%= current_user.notifications.where(read:false).count%></a>
                       <li id="logout"><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
                     </ul>
+
 
         </div>
       </nav>
       <%end%>
     <%=yield%>
-  </body>
+
+  </div>
+      </body>
 </html>

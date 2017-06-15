@@ -1,14 +1,20 @@
 class PostsController < ApplicationController
 	# only allow users to post
 	before_action :require_user, only: [:new]
+layout nil, :only => [:new]
+
 	def index
 		@post = Post.all.order("created_at DESC")
+	  # @notification = Notification.where(:user_id => current_user.id)
+
+
 	end
 	def all
 		@post_all = Post.all
 	end
 	def new
 		@post = Post.new
+		@notification = Notification.where(:user_id => current_user.id)
 	end
 # render new and redirect error
 	def create
@@ -27,6 +33,7 @@ class PostsController < ApplicationController
 		@comment_all = Comment.where(post_id:params[:id])
 		# @comment_find_id = Comment.find(params[:id])
 		@post_find = Post.all.find(params[:id])
+		  # @notification = Notification.where(:user_id => current_user.id)
 
 
 
@@ -59,4 +66,5 @@ class PostsController < ApplicationController
 		params.require(:post).permit(:title, :tag, :body, :user_id)
 
 	end
+
 end

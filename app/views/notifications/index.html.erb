@@ -1,8 +1,10 @@
 <center>
+  <h1>Notifications</h1>
   <%@notification.order(Id: :DESC).each do |n|%>
     <li>
-      <%=link_to "#{n.notified_by.username}"%> has <%="#{n.notice_type}ed" %> on your <%=link_to "post",Post.find(n.post_id)%> at <%=time_ago_in_words n.created_at%>
+      <%= link_to "#{n.notified_by.username} has #{n.notice_type}ed on your post", link_through_path(n) %> at <%=time_ago_in_words n.created_at%> <spam class="change_bool"><%=n.read.to_s%></spam>
     </li>
   <%end%>
 
 </center>
+<!-- notifications which isn't readed -->

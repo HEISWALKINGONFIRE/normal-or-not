@@ -171,10 +171,15 @@ background-color: #58f72c;
 {
 	display: inline;
 }
+
 /*.downvote
 {
 	display:inline;
 }*/
+.mymodal:navbar
+{
+	display:none;
+}
 
 /*adding bounce*/
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
