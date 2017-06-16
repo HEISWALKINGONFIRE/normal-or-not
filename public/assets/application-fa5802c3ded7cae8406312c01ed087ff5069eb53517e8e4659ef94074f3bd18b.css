@@ -1,0 +1,347 @@
+/*// Place all the styles related to the abouts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/*/
+
+
+
+p
+{
+	font-size: 25px;
+	font-weight: bold;
+}
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/* line 4, /home/andre/Desktop/normal-or-not-master/app/assets/stylesheets/notifications.scss */
+li {
+  list-style-type: none;
+}
+
+/* line 8, /home/andre/Desktop/normal-or-not-master/app/assets/stylesheets/notifications.scss */
+.change_bool {
+  font-weight: bolder;
+}
+/*// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/*/
+
+
+
+div div div h3 h4 h1
+{
+	font-weight: bolder;
+	font-family: 'Lato', sans-serif;
+}
+.index
+{
+
+color:black;
+text-align:center;
+margin:0 auto;
+width: 100%;
+height: 300px;
+
+border-radius:%;
+-webkit-box-shadow: 2px 2px 11px 2px rgba(0,0,0,0.55);
+-moz-box-shadow: 2px 2px 11px 2px rgba(0,0,0,0.55);
+box-shadow: 2px 2px 11px 2px rgba(0,0,0,0.55);
+
+}
+.background-image-1
+{
+	background-image:url("https://www.huzlers.com/wp-content/uploads/2015/04/dsc_0605.jpg");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-clip: content-box;
+	width: auto;
+	margin-top: -17px;
+	margin-bottom: -17px;
+	/*height: 172px;*/
+	/*problem*/
+}
+.sign-in-login-in
+{
+	width:350px;
+	height: auto;
+	background-color: transparent;
+	filter: grayscale(0.9);
+
+}
+/*for sign in and sign up on index page.*/
+/*background-color: white;
+background-color: transparent;
+opacity: 0.9;
+color: white;*/
+.sign-in-login-in
+{
+	background-color: black;
+	opacity: 0.9;
+	color: white;
+	border-radius: 15px 50px;
+	font-size: 20px;
+	list-style-type: none;
+	float: right;
+}
+#sign-up-box
+{
+	text-align: center;
+	color:black;
+}
+.background-image-2
+{
+	background-color: #e3eaf9;
+	width: 100%;
+	height: auto;
+}
+
+post_wrapper
+{
+	height: 300px;
+}
+
+/*most popular!*/
+.cards
+{
+
+	width: auto;
+	height: auto;
+  block-align:center;
+  margin: auto;
+  /*margin-left: 200px;
+  margin-right: 100px;*/
+	text-align: center;
+  /*display:flex;*//*display: inline-block;*/
+}
+.box_1
+{
+  background-color:#43bce8;
+  height:100px;
+  width:20%;
+  display:inline-table;
+  box-sizing:border-box;
+  margin:5px auto;
+	font-family: 'Lato', sans-serif;
+	/*list-style-type: none;*/
+  color: black;
+  font-size: 20px;
+	word-wrap: break-word;
+
+ /* align-items: center;*/
+
+}
+ul
+{
+	list-style-type: none;
+}
+a:link,:visited
+{
+	color:black;
+}
+/*post container for show*/
+.post-container
+{
+	width: 1000px;
+	height: auto;
+	margin: auto;
+	border-radius: 46px 46px 46px 46px;
+-moz-border-radius: 46px 46px 46px 46px;
+-webkit-border-radius: 46px 46px 46px 46px;
+border: 0px double #000000;
+background-color: #1cc4e6;
+}
+.show-text
+{
+	width: 950px;
+	margin: auto;
+	word-wrap: break-word;
+}
+.buttons
+{
+	margin: auto;
+	text-align: center;
+}
+.comments
+/*resize!!*/
+{
+	width: 1000px;
+	height: auto;
+	margin: auto;
+	border-radius: 46px 46px 46px 46px;
+-moz-border-radius: 46px 46px 46px 46px;
+-webkit-border-radius: 46px 46px 46px 46px;
+border: 0px double #000000;
+
+background-color: #58f72c;
+}
+.comment-buttons
+{
+	float: left;
+}
+.created_at
+{
+	float:right;
+}
+/*.add-comment*/
+#comment_body
+{
+	width: 500px;
+	background-color: #58f72c;
+	border-radius: 15px;
+	height: 30px;
+	font-family: 'Lato', sans-serif;
+
+}
+.upvote, .downvote, .upvote_c, .downvote_c
+{
+	display: inline;
+}
+
+/*.downvote
+{
+	display:inline;
+}*/
+.mymodal:navbar
+{
+	display:none;
+}
+input#post_title
+{
+	width:500px;
+}
+.see-more
+{
+	font-weight: bolder;
+}
+
+/*adding bounce*/
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+/* line 4, /home/andre/Desktop/normal-or-not-master/app/assets/stylesheets/profiles.scss */
+.box_1 {
+  background-color: #4b7ac1;
+  height: 100px;
+  width: 20%;
+  display: inline-table;
+  box-sizing: border-box;
+  margin: 5px auto;
+  font-family: 'Lato', sans-serif;
+  /*list-style-type: none;*/
+  color: black;
+  font-size: 20px;
+  word-wrap: break-word;
+  /* align-items: center;*/
+}
+
+/* line 21, /home/andre/Desktop/normal-or-not-master/app/assets/stylesheets/profiles.scss */
+.cards {
+  width: auto;
+  height: auto;
+  block-align: center;
+  margin: auto;
+  /*margin-left: 200px;
+  margin-right: 100px;*/
+  text-align: center;
+  /*display:flex;*/
+  /*display: inline-block;*/
+}
+// Place all the styles related to the sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.background-img
+{
+	background: url("https://i.ytimg.com/vi/H5ssxCnxIdc/maxresdefault.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	background-size: 100%;
+
+
+}
+.container_login
+{
+	background-color: lightskyblue;
+	opacity: 0.9;
+	width: 600px;
+	height:300px;
+	margin-left: 20px;
+	border-radius: 10px 10px 10px 10px;
+-moz-border-radius: 10px 10px 10px 10px;
+-webkit-border-radius: 10px 10px 10px 10px;
+border: 0px solid #000000;
+
+
+}
+.content
+{
+	text-align: center;
+}
+/*// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+*/
+
+/*.background-img
+{
+background: url("http://i.imgur.com/Blbvo.jpg") no-repeat center center fixed; 
+width: 1095px;
+height: auto;
+
+}
+.sign-up-box
+{
+}*/
+
+.background-img
+{
+	background: url("https://i.ytimg.com/vi/H5ssxCnxIdc/maxresdefault.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	background-size: 100%;
+}
+.container_signup
+{
+	background-color: lightskyblue;
+	opacity: 0.9;
+	width: 600px;
+	height:300px;
+	margin-left: 20px;
+	border-radius: 10px 10px 10px 10px;
+-moz-border-radius: 10px 10px 10px 10px;
+-webkit-border-radius: 10px 10px 10px 10px;
+border: 0px solid #000000;
+
+
+}
+.content
+{
+	text-align: center;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+ .nav navbar-nav
+ {
+ 	margin-top: auto;
+ 	background-repeat: no-repeat center center fixed;
+ }
+
+ .notification-dropdown {
+   margin-top: 10px;
+   button {
+     border: none;
+   }
+ }
