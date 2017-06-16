@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   end
   def destroy
   	session[:user_id] = nil
+    # flash[:info] = "Logout successful, till next time."
   	redirect_to '/'
-    flash[:info] = "Logout successful, till next time."
   end
 end

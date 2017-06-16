@@ -26,10 +26,12 @@
 				  <%= @post.get_downvotes.size %>
 				<% end %>
 			</div>
-			<% if current_user.id == @post.user_id%>
-				<%= link_to 'Delete', @post, :method => :delete%>
-				<%end%>
 
+				<%if current_user == nil%>
+				<%else current_user.id == @post.user_id %>
+				<%=link_to 'Delete', @post, :method => :delete%>
+				<%end%>
+			
 					<div class="created_at">
 						<h>submited </h><%= time_ago_in_words@post.created_at%> ago
 					</div>
