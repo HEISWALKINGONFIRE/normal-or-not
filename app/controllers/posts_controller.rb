@@ -64,6 +64,7 @@ layout nil, :only => [:new]
 		@post.destroy
 		redirect_to "/"
 	end
+	
 
 	private
 	def post_params

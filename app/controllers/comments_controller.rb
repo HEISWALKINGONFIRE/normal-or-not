@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 	# only allow users to comment
 	before_action :require_user, only:[:new, :create]
- 	before_action :set_post, :except => [:upvote, :downvote]
+ 	before_action :set_post, :except => [:upvote, :downvote, :destroy]
 	def index
 		@comment = Comment.all
 	end
@@ -38,10 +38,10 @@ class CommentsController < ApplicationController
 		redirect_to :back
 	end
 
-	def delete
-		@comment = Comment.find(params[:id])
-		@comment.destroy
-		flash[:alert] = "Comment deleted."
+	def destroy
+		@comment_all = Comment.find(params[:id])
+		@comment_all.destroy
+		redirect_to :back
 	end
 
 	private
