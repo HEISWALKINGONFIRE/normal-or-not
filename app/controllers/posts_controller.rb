@@ -22,6 +22,10 @@ layout nil, :only => [:new]
 
 		@post = Post.new(post_params)
 		if @post.tag == ""
+			flash[:warning] = "you need to add a title"
+		elsif @post.body == ""
+			flash[:warning] = "you need to add a body"
+
 		else
 			@post.save
 			redirect_to "#"
