@@ -62,9 +62,9 @@ layout nil, :only => [:new]
 	def destroy
 		@post = Post.find(params[:id])
 		@post.destroy
-		redirect_to "/"
+		redirect_to :back
 	end
-	
+
 
 	private
 	def post_params
