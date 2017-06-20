@@ -22,9 +22,9 @@ layout nil, :only => [:new]
 
 		@post = Post.new(post_params)
 		if @post.tag == ""
-
+			redirect_to :back
 		elsif @post.body == ""
-
+			redirect_to :back
 		else
 			@post.save
 			redirect_to "#"
