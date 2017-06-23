@@ -1,0 +1,102 @@
+
+<!-- posts -->
+	<div class="post-container">
+			&nbsp
+		<div class="show-text">
+			<h1><%=@post.title%></h1>
+			<br>
+			<!-- <h>tag</h>
+			<br> -->
+			<%=@post.tag%>
+			<!-- post by who? -->
+			by:@<%=User.all.find(Post.find(params[:id]).user_id).username%>
+			<br>
+			<br>
+			<h3>
+			<%=@post.body%></h3>
+
+
+			<div>
+				<%= link_to like_post_path(@post), method: :put do %>
+				Upvote
+				<%= @post.get_upvotes.size %>
+				<% end %>
+
+				<%= link_to dislike_post_path(@post), method: :put do %>
+				  Downvote
+				  <%= @post.get_downvotes.size %>
+				<% end %>
+			</div>
+
+				<%if current_user == nil%>
+				<%elsif current_user.id == @post.user_id %>
+				<%=link_to 'Delete', @post, :method => :delete%>
+				<%else%>
+				<%end%>
+
+					<div class="created_at">
+						<h>submited </h><%= time_ago_in_words@post.created_at%> ago
+					</div>
+
+<!-- add validation for upvote and downvote so that each user can only Upvote or downVote once				<!- <form action="/upvote" id="@post" method="posts"> -->
+				&nbsp
+		</div>
+		&nbsp
+		&nbsp
+	</div>
+		<!-- comments -->
+
+		<% @comment_all.each do |all|%>
+			<br>
+		<div class="comments">
+			<div class="show-text">
+				&nbsp
+				<br />
+				@<%=User.find(all.user_id).username %>
+				<br>
+					<%= all.body%>
+				<br>
+				<br>
+				<!-- vote -->
+				<div>
+					<%= link_to like_comment_path(all), method: :put do%>
+						Upvote
+						<%= all.get_upvotes.size%>
+					<%end%>
+
+					<%= link_to dislike_comment_path(all), method: :put do%>
+					Downvote
+					<%= all.get_downvotes.size%>
+					<%end%>
+					<%if current_user == nil%>
+					<%elsif current_user.id == all.user_id%>
+						<br />
+						<%= link_to 'Delete',all, :method=> :delete%>
+						<%else%>
+					<%end%>
+					<div class="created_at">
+						<h>submited </h><%= time_ago_in_words all.created_at%> ago
+					</div>
+				</div>
+				<br />
+
+			</div>
+			<br>
+		</div>
+		<%end%>
+
+
+		<!-- add comments -->
+		<center>
+		<div class="add-comments">
+			<%= form_for @comment_new do |add|%>
+			<%= add.text_field :body, placeholder:"add a comment..."%>
+			<%= add.hidden_field :post_id, value:@post.id%>
+			<!-- <%= add.hidden_field :comment_id, value:@comment_find_id%> -->
+
+			<%= add.hidden_field :user_id, value: session[:user_id]%>
+
+			<%= add.submit"Submit"%>
+			<%end%>
+		</div>
+		</center>

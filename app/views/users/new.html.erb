@@ -1,0 +1,35 @@
+<!-- alerts -->
+<%flash.each do |key, value|%>
+	<div class="alert alert-<%= key %>"><center><%= value %></center></div>
+	<%end%>
+<body class="background-img">
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<center>
+	<div class="container_signup">
+
+		<div class="content">
+		&nbsp
+			<h1>Sign up</h1>
+			<%= form_for @user do |user|%>
+				<%= user.label :username%>
+				<%= user.text_field :username, :placeholder => "Username"%>
+				<br>
+				<br>
+				<%= user.label :email%>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<%= user.text_field :email, :placeholder => "Email"%>
+				<br>
+				<br>
+				<%= user.label :password%>
+				<%= user.password_field :password, :placeholder => "Password"%>
+				<br>
+				<br>
+				<%= user.submit "Sign Up"%>
+		</div>
+		<%end%>
+	</div>
+		</center>
+</body>

@@ -1,0 +1,17 @@
+<!-- all post -->
+<br />
+<center>
+  <h4>Questions need answers.</h4>
+  <h3>feel free the answer them.</h3>
+
+  <div>
+    <ul>
+      <li>
+        <%@post_all.order("RANDOM()").limit(nil).each do |t|%>
+          <h class="box_1"><%= link_to t.title, t%></h>
+          <%end%>
+      </li>
+    </ul>
+  </div>
+</center>
+<!-- @post_all.all.each do |t| -->

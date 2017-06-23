@@ -1,0 +1,20 @@
+<center>
+
+    <h1>Profile page</h1>
+    @<%=current_user.username%>
+    <br />
+    user created <%=time_ago_in_words current_user.created_at%> ago
+    <br />
+    number of post created <%=Post.all.where(:user_id => current_user.id).count%>
+  <h1>Post created</h1>
+  <div class="cards">
+    <%Post.all.where(:user_id => current_user.id).each do |t|%>
+    <div class="box_1">
+      <%=link_to t.title, t%>
+    </div>
+
+    <%end%>
+  </div>
+
+
+</center>

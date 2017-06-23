@@ -1,0 +1,32 @@
+// Place all the styles related to the profiles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.box_1
+{
+  background-color:#4b7ac1;
+  height:100px;
+  width:20%;
+  display:inline-table;
+  box-sizing:border-box;
+  margin:5px auto;
+	font-family: 'Lato', sans-serif;
+	/*list-style-type: none;*/
+  color: black;
+  font-size: 20px;
+	word-wrap: break-word;
+
+ /* align-items: center;*/
+
+}
+.cards
+{
+
+	width: auto;
+	height: auto;
+  block-align:center;
+  margin: auto;
+  /*margin-left: 200px;
+  margin-right: 100px;*/
+	text-align: center;
+  /*display:flex;*//*display: inline-block;*/
+}

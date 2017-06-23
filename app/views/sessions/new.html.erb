@@ -1,0 +1,36 @@
+<!-- alerts -->
+<%flash.each do |key, value|%>
+	<div class="alert alert-<%= key %>"><center><%= value %></center></div>
+	<%end%>
+<body class="background-img">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+	<center>
+	<div class="container_login">
+		<div class="content">
+		&nbsp
+			<h1>Log in</h1>
+
+				<%= form_for(:session, url: login_path) do |f| %>
+				<%= f.label :email%> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			    <%= f.email_field :email, :placeholder => "Email" %>
+				<br>
+				<br>
+				<%= f.label :password%>
+				<%= f.password_field :password, :placeholder => "Password" %>
+				<br>
+				<br>
+				<%= f.submit "Log in", class: "btn-submit" %>
+				<br>
+				<br>
+				<a href="/users/new">SignUp!</a>
+		</div>
+		<% end %>
+
+	</div>
+	</center>
+</body>

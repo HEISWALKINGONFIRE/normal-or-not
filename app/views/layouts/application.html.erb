@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <title>Normal or not?</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link href="/assets/favicon.ico" rel="shortcut icon" type="favicon.ico" />
+    </head>
+  <body>
+
+<div class="not-signin">
+  <!-- if user is not sign in -->
+ <%if current_user.present? == false%>
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+     <!--      <div class="navbar-header"> -->
+            <a class="navbar-brand" href="/">Normal Or Not?</a>
+          <!-- </div> -->
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/abouts">About</a></li>
+           <!-- <li><a href="posts/new" class="btn btn-danger navbar-btn" role="button">Submit post</a></li> -->
+           <li><a class="btn btn-danger" href="/posts/new">Submit post</a></li>
+            <!-- <li><a href="posts/new">Submit post</a></li> -->
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/users/new"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li id="logout"><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul>
+        </div>
+      </nav>
+
+</div>
+  <div class="sign-in">
+    <!-- if user sign in -->
+    <%else current_user.present? == true%>
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <!-- <div class="navbar-header"> -->
+            <a class="navbar-brand" href="/">Normal Or Not?</a>
+         <!--  </div> -->
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="/abouts">About</a></li>
+               <!-- <li><a href="posts/new" class="btn btn-danger navbar-btn" role="button">Submit post</a></li> -->
+                  <li>
+                   <a class="btn btn-danger" href="/posts/new" data-toggle="modal" data-target="#myModal">Submit post</a>
+                    <!-- Modal -->
+                      <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+                          <!-- Modal content-->
+                          <div class="modal-content">
+                          </div>
+                        </div>
+                      </div>
+                   </li>
+                   <!-- Notification     -->
+                   <!-- <li>
+                     <div class="btnW navbar-btn">
+                       <button class="btn btn-default dropdown-toggle" >
+                       <%= current_user.notifications.where(read:false).count%>
+
+                       <span class="glyphicon glyphicon-globe"></span>
+                       </button>
+                       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                         <center>
+                           Notifications
+                         </center>
+                         <li class="divider" role="separator"></li>
+
+                         <li class="text-center">
+
+
+                           <%= link_to 'View ALL', notifications_path%>
+                       </ul>
+                     </div>
+                   </li> -->
+
+
+
+                      <!-- <li><a href="posts/new">Submit post</a></li> -->
+              </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><a href="/profiles"><span class="glyphicon glyphicon-user"></span>@<%=current_user.username%></a></li>
+                      <li><a href="/notifications"><span class="glyphicon glyphicon-globe"></span><%= current_user.notifications.where(read:false).count%></a>
+                      <li id="logout"><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    </ul>
+
+
+        </div>
+      </nav>
+
+      <%end%>
+    <%=yield%>
+
+  </div>
+      </body>
+
+</html>
